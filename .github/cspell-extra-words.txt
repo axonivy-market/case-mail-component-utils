@@ -1,1 +1,1 @@
-mailstore, casemailcomponent, resends, Übergesprungen, nbsp
+mailstore, casemailcomponent, resends, Übergesprungen, nbsp, emailbox
