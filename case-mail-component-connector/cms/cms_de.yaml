@@ -92,8 +92,8 @@ Tasks:
     details: Details
     errorMessage: Fehlermeldung
     ignore: Ignorieren
-    ignoreConfirmatationHeader: Weiter?
-    ignoreConfirmatationMessage: Möchten Sie den Prozess wirklich fortsetzen?
+    ignoreConfirmationHeader: Weiter?
+    ignoreConfirmationMessage: Möchten Sie den Prozess wirklich fortsetzen?
     ignoreTooltip: Warnung ignorieren und den Prozess fortsetzen.
     mailSendHistory: E-Mail-Versandverlauf
     name: Email Fehler Admin Task

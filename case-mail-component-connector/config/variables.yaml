@@ -13,7 +13,7 @@ Variables:
     mailLoopRepeatDelay: "30"
     # Accepted file types. Separate by comma
     allowFileTypes: jpg, pdf, xlsx, docx
-    # maximum size of uplaoded files in MB (fallback/default size is set to 10 MB)
+    # maximum size of uploaded files in MB (fallback/default size is set to 10 MB)
     maxUploadSize: "10"
     # Subject pattern used to identify emails for processing. To match by 'contains', use a regular expression like: .*your-pattern.*
     subjectMatches: .*
