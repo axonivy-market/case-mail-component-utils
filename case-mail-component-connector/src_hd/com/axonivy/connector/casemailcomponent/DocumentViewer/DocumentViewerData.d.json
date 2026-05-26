@@ -1,6 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "DocumentViewerData",
-  "namespace" : "com.axonivy.connector.casemailcomponent.DocumentViewer",
-  "isBusinessCaseData" : false
+  "namespace" : "com.axonivy.connector.casemailcomponent.DocumentViewer"
 }

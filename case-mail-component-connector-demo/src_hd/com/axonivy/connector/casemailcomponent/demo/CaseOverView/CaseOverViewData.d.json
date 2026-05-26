@@ -1,15 +1,12 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "CaseOverViewData",
   "namespace" : "com.axonivy.connector.casemailcomponent.demo.CaseOverView",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "mail",
-    "type" : "com.axonivy.connector.casemailcomponent.businessData.Mail",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.casemailcomponent.businessData.Mail"
   }, {
     "name" : "caseList",
-    "type" : "List<com.axonivy.connector.casemailcomponent.demo.model.CaseModel>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<com.axonivy.connector.casemailcomponent.demo.model.CaseModel>"
   } ]
 }

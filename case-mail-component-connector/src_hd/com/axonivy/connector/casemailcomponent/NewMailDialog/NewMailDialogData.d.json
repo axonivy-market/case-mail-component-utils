@@ -1,18 +1,16 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "NewMailDialogData",
   "namespace" : "com.axonivy.connector.casemailcomponent.NewMailDialog",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "mail",
-    "type" : "com.axonivy.connector.casemailcomponent.businessData.Mail"
+    "type" : "com.axonivy.connector.casemailcomponent.businessData.Mail",
+    "modifiers" : [ ]
   }, {
     "name" : "mailCount",
-    "type" : "Number",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "Number"
   }, {
     "name" : "attachments",
-    "type" : "java.util.List<com.axonivy.connector.casemailcomponent.businessData.Attachment>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.util.List<com.axonivy.connector.casemailcomponent.businessData.Attachment>"
   } ]
 }

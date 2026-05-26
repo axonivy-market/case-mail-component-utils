@@ -1,13 +1,13 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "RetrieveMailsData",
   "namespace" : "com.axonivy.connector.casemailcomponent.businessCaseData",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "handleUnclearEmailsTask",
-    "type" : "com.axonivy.connector.casemailcomponent.model.CustomTaskDefinition"
+    "type" : "com.axonivy.connector.casemailcomponent.model.CustomTaskDefinition",
+    "modifiers" : [ ]
   }, {
     "name" : "storeName",
-    "type" : "String"
+    "modifiers" : [ ]
   } ]
 }
