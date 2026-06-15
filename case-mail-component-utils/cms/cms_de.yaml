@@ -1,0 +1,120 @@
+Button:
+  abort: Abort
+  cancel: Abbrechen
+  finish: Finish
+  forward: Weiterleiten
+  newMail: Neue E-Mail
+  'no': Nein
+  reply: Antworten
+  resend: Erneut senden
+  retry: Wiederholen
+  send: Senden
+  'yes': Ja
+Document:
+  documentPreview: Dokumentenvorschau
+  previewNotAvailable: Preview nicht verfügbar, bitte laden Sie das File herunter und öffnen Sie es mit der Applikation auf ihrem Client
+Errors:
+  failedToCacheFile: Datei kann nicht gecached werden
+  failedToConvertToPdf: Datei konnte nicht in PDF konvertiert werden
+  failedToLoadFile: Datei konnte nicht geladen werden
+  mailJavaApiNotSend: Fehler beim Emailversand mit Java API
+  mailNotSent: Fehler beim Emailversand
+File:
+  fileTypesAllowedMessage: Es sind nur {0} Dateien erlaubt
+  maximumFileSizeMessage: Es werden nur Dateien mit einer maximalen Größe von {0} MB erlaubt
+  upload: Hochladen
+Labels:
+  abortTaskAndEnd: Aufgabe abbrechen und Prozess beenden
+  abortTaskMessage: Möchten Sie diese Aufgabe wirklich abbrechen und den Prozess beenden?
+  confirmation: Bestätigen
+  createdDate: Erstellungsdatum
+  emailDetails: E-Mail-Details
+  proceedTooltip: Finish the Task and end the Process
+  resendConfirmMessage: Möchten Sie die E-Mail <b>{0}</b> erneut an <b>{1}; {2}</b> senden
+  retrySendMailMessage: Möchten Sie wirklich versuchen, diese E-Mail erneut zu senden?
+  retryTooltip: E-Mail-Versand erneut versuchen
+  status: Status
+Mail:
+  Status:
+    assigned: Zugewiesen
+    assignedIncomplete: ''
+    failed: SMTP_Gescheitert
+    outbox: Postausgang
+    refNotFound: Referenz nicht gefunden
+    sent: Gesendet
+    skipped: Übergesprungen
+  attachments: Anhänge
+  bcc: BCC
+  body: Nachrichtentext
+  cc: CC
+  content: Inhalt
+  from: Von
+  newMail: Neue E-Mail
+  sent: Gesendet
+  subject: Betreff
+  to: An
+NewMail:
+  FW: 'WG:'
+  MetaInformation:
+    BCC: <b>BCC:</b>
+    CC: <b>CC:</b>
+    From: <b>Von:</b>
+    Sent: <b>Gesendet:</b>
+    Subject: <b>Betreff:</b>
+    To: <b>An:</b>
+  RE: 'AW:'
+RetrieveMail:
+  NotificationTaskType:
+    RETRIEVE_EMAIL_NO_REFERENCE_FOUND:
+      category: Email/Inbound/Default/NoReferenceFound
+      description: Eine neue Mail ohne Referenz von ''{0}'' mit Betreff ''{1}'' wurde am {2} empfangen. Es wurde keine Referenz gefunden. Bitte bearbeiten Sie diese Mail manuell.
+      name: Handle unclear Email
+    RETRIEVE_EMAIL_REFERENCE_FOUND:
+      category: Email/Inbound/Default/AssignedToCase
+      description: Eine neue E-Mail mit Referenz ''{3}'' von ''{0}'' mit Betreff ''{1}'' wurde am {2} empfangen. Die E-Mail wurde verarbeitet und an den Fall angehängt.
+      name: E-Mail zugewiesen für Fall ''{3}''
+  utilsError: 'Getting error when retrieve mail from mailbox ''''{0}'''', exception: {1}'
+  contentError: 'Mail retrieve - content error handling: {0}.'
+  date: Datum
+  incompleteMailError: 'Mail retrieve incomplete error: {0}, for Mail Subject: {1}, Mail From {2}, Attachment name {3}, content-type {4}, will be moved to folder: {5}.'
+  ivyRoleNotFound: Ivy role ''{0}'' not found.
+  newMail: Neue E-Mail
+  processingMessage: '{0} [Email in mailbox ''''{1}'''' with subject ''''{2}'''' received on {3}]'
+  readingMailMessageError: Getting error when reading mail from server {0}, mailbox {1}, mail subject {2}, mail sender {3}
+  taskDesc: Task description
+  taskTitle: Task title
+Tasks:
+  EmailFailAdminTask:
+    checkLater: Später prüfen
+    checkLaterTooltip: Aufgabe bestehen lassen und später prüfen
+    date: Datum
+    description: Aufgabe für Admin, die versuchen, die E-Mail zu versenden
+    details: Details
+    errorMessage: Fehlermeldung
+    ignore: Ignorieren
+    ignoreConfirmationHeader: Weiter?
+    ignoreConfirmationMessage: Möchten Sie den Prozess wirklich fortsetzen?
+    ignoreTooltip: Warnung ignorieren und den Prozess fortsetzen.
+    mailSendHistory: E-Mail-Versandverlauf
+    name: Email Fehler Admin Task
+    retry: Erneut versuchen
+    retryTooltip: Operation erneut durchführen
+    time: Uhrzeit
+  RetrySendingMail:
+    description: Retry sending e-mail
+    name: Retry sending e-mail
+  SendingMail:
+    description: Sending E-mail
+    name: Sending E-mail
+  description: Technical process to send E-mails asynchronously with automatic retry and admin task handling.
+  name: Send Mail Async
+Template:
+  resendSection: <div><<<<&nbsp;&nbsp;Das ist die Kopie eines E-mails, das bereits einmal versendet wurde&nbsp;&nbsp;>>>>></div><br><div>Originale Nachricht:</div>
+Validation:
+  InvalidEmail:
+    message: Keine gültige E-Mail Adresse.
+    regex: ^[\w.+-]+@[A-Za-z\d.-]+\.[A-Za-z]{2,}$
+  InvalidEmailList:
+    message: Keine gültige Liste von E-Mail Adressen. Durch Komma separieren.
+    regex: ^[\w.+-]+@[A-Za-z\d.-]+\.[A-Za-z]{2,}(\s*[,;]\s*[\w.+-]+@[A-Za-z\d.-]+\.[A-Za-z]{2,})*$
+  requiredMessage: Wert für {0} ist erforderlich

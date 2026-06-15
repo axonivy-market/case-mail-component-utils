@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://json-schema.axonivy.com/app/12.0.0/variables.json
+Variables:
+  mailstoreUtils:
+    imap:
+      protocol: ""
+      host: ""
+      port: ""
+      user: ""
+      password: ""
+    # number of re-sending mail when sent fail
+    mailLoopRepeatNumber: "2"
+    # number seconds delay before re-sending mail
+    mailLoopRepeatDelay: "30"
+    # Accepted file types. Separate by comma
+    allowFileTypes: jpg, pdf, xlsx, docx
+    # maximum size of uploaded files in MB (fallback/default size is set to 10 MB)
+    maxUploadSize: "10"
+    # Subject pattern used to identify emails for processing. To match by 'contains', use a regular expression like: .*your-pattern.*
+    subjectMatches: .*
+    # Regex to match received email with case. For example: \[Ref=(.+?)\]
+    caseReferenceRegex: \[Ref=(.+?)\]
+    # After retrieving an email, the system will create a task assigned to this role.
+    retrieveMailTaskRole: Admin
+    # Folder to which the mail will be moved after successful processing
+    processedFolderName: Processed
+    # Folder to which the mail will be moved if an error occurs
+    errorFolderName: ErrorFolder
+    # If set to true, the email will be sent via the Java Mail API, and any inline images included in the message will be embedded as CID (Content-ID) references within a multipart message, instead of being encoded as Base64.
+    # [enum: true, false]
+    cidInlineImagesMode: "false"

@@ -1,0 +1,97 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
+  "id" : "197CF45768C992CF",
+  "config" : {
+    "data" : "com.axonivy.utils.casemailcomponent.demo.MailDemoData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start",
+      "config" : {
+        "signature" : "start"
+      },
+      "tags" : [
+        "demo"
+      ],
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f2", "to" : "f3" }
+      ]
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 64 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : "CaseOverView",
+      "config" : {
+        "dialog" : "com.axonivy.utils.casemailcomponent.demo.CaseOverView:start()"
+      },
+      "visual" : {
+        "at" : { "x" : 316, "y" : 65 },
+        "size" : { "width" : 136, "height" : 62 }
+      },
+      "connect" : [
+        { "id" : "f4", "to" : "f1", "color" : "default" }
+      ]
+    }, {
+      "id" : "f5",
+      "type" : "RequestStart",
+      "name" : "editCase",
+      "config" : {
+        "signature" : "editCase",
+        "input" : {
+          "params" : [
+            { "name" : "caseId", "type" : "String", "desc" : "" }
+          ],
+          "map" : {
+            "out.caseId" : "param.caseId"
+          }
+        },
+        "request" : {
+          "isVisibleOnStartList" : false
+        }
+      },
+      "tags" : [
+        "demo"
+      ],
+      "visual" : {
+        "at" : { "x" : 96, "y" : 216 }
+      },
+      "connect" : [
+        { "id" : "f9", "to" : "f6" }
+      ]
+    }, {
+      "id" : "f6",
+      "type" : "DialogCall",
+      "name" : "EditCase",
+      "config" : {
+        "dialog" : "com.axonivy.utils.casemailcomponent.demo.EditCase:start(String)",
+        "call" : {
+          "map" : {
+            "param.caseId" : "in.caseId"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 216 }
+      },
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
+    }, {
+      "id" : "f7",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 216 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    } ]
+}

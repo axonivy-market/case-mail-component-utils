@@ -1,0 +1,71 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "Mail",
+  "namespace" : "com.axonivy.utils.casemailcomponent.businessData",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "id",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "status",
+    "type" : "com.axonivy.utils.casemailcomponent.enums.MailStatus",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "sender",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "subject",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "recipient",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "recipientCC",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "recipientBCC",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "body",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "emailHeader",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "receivedDateTime",
+    "type" : "DateTime",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "direction",
+    "type" : "com.axonivy.utils.casemailcomponent.enums.DirectionCode",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "sentDate",
+    "type" : "DateTime",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "responseTo",
+    "type" : "com.axonivy.utils.casemailcomponent.businessData.Mail",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "responseAction",
+    "type" : "com.axonivy.utils.casemailcomponent.enums.ResponseAction",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "createdDate",
+    "type" : "DateTime",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "caseId",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

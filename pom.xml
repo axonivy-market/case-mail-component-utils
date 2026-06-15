@@ -1,20 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.axonivy.connector.casemailcomponent</groupId>
-  <name>case-mail-component-connector</name>
-  <artifactId>case-mail-component-connector-modules</artifactId>
+  <groupId>com.axonivy.utils.casemailcomponent</groupId>
+  <name>case-mail-component-utils</name>
+  <artifactId>case-mail-component-utils-modules</artifactId>
   <version>13.2.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
-    <module>case-mail-component-connector</module>
-    <module>case-mail-component-connector-demo</module>
-    <module>case-mail-component-connector-test</module>
-    <module>case-mail-component-connector-product</module>
+    <module>case-mail-component-utils</module>
+    <module>case-mail-component-utils-demo</module>
+    <module>case-mail-component-utils-test</module>
+    <module>case-mail-component-utils-product</module>
   </modules>
 
   <scm>
-    <developerConnection>scm:git:https://github.com/axonivy-market/case-mail-component-connector.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/axonivy-market/case-mail-component-utils.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 

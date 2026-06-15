@@ -1,0 +1,15 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "CaseOverViewData",
+  "namespace" : "com.axonivy.utils.casemailcomponent.demo.CaseOverView",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "mail",
+    "type" : "com.axonivy.utils.casemailcomponent.businessData.Mail",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "caseList",
+    "type" : "List<com.axonivy.utils.casemailcomponent.demo.model.CaseModel>",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}
