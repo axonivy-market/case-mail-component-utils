@@ -1,0 +1,23 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "AdminTaskData",
+  "namespace" : "com.axonivy.utils.casemailcomponent.AdminTask",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "mail",
+    "type" : "com.axonivy.utils.casemailcomponent.businessData.Mail",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "resultAction",
+    "type" : "com.axonivy.utils.casemailcomponent.enums.RetryAction",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "exceptionsText",
+    "type" : "java.util.List<String>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "sendingMailTasks",
+    "type" : "List<ch.ivyteam.ivy.workflow.ITask>",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

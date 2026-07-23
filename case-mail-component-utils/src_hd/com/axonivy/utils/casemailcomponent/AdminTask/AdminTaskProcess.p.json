@@ -1,0 +1,112 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
+  "id" : "199567B5BC738412",
+  "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "com.axonivy.utils.casemailcomponent.AdminTask.AdminTaskData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start(String)",
+      "config" : {
+        "signature" : "start",
+        "input" : {
+          "params" : [
+            { "name" : "mailId", "type" : "String", "desc" : "" }
+          ],
+          "map" : { },
+          "code" : [
+            "import com.axonivy.utils.casemailcomponent.businessData.Mail;",
+            "",
+            "out.mail = ivy.repo.find(param.mailId, Mail.class) as Mail;"
+          ]
+        },
+        "result" : {
+          "params" : [
+            { "name" : "action", "type" : "com.axonivy.utils.casemailcomponent.enums.RetryAction", "desc" : "" }
+          ],
+          "map" : {
+            "result.action" : "in.resultAction"
+          }
+        },
+        "guid" : "197CEA1F4B2E1544"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f2", "to" : "f8" }
+      ]
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 64 },
+        "labelOffset" : { "x" : 10, "y" : 30 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogEventStart",
+      "name" : "close",
+      "config" : {
+        "guid" : "197CEA1F4B4C9891",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.resultAction" : "com.axonivy.utils.casemailcomponent.enums.RetryAction.NOT_RETRY"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 }
+      },
+      "connect" : [
+        { "id" : "f5", "to" : "f4" }
+      ]
+    }, {
+      "id" : "f4",
+      "type" : "HtmlDialogExit",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 160 },
+        "labelOffset" : { "x" : 10, "y" : 30 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "HtmlDialogEventStart",
+      "name" : "retry",
+      "config" : {
+        "guid" : "197CEA4036B37F0E",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.resultAction" : "com.axonivy.utils.casemailcomponent.enums.RetryAction.RETRY"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 248 }
+      },
+      "connect" : [
+        { "id" : "f7", "to" : "f4" }
+      ]
+    }, {
+      "id" : "f8",
+      "type" : "Script",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.axonivy.utils.casemailcomponent.service.MailService;",
+            "",
+            "in.sendingMailTasks = MailService.getSendMailTasks(ivy.case);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f9", "to" : "f1", "color" : "default" }
+      ]
+    } ]
+}

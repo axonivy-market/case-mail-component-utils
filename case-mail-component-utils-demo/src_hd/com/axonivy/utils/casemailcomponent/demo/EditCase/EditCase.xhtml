@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition template="/layouts/frame-10-full-width.xhtml">
+		<ui:define name="title">EditCase</ui:define>
+		<ui:define name="content">
+			<h:form id="form">
+				<p:messages />
+				<ic:com.axonivy.utils.casemailcomponent.MailBrowser id="mailBrowserContainer"
+					mailBrowserId="form:mailBrowserContainer" caseId="#{data.caseId}"
+					caseRef="#{caseBean.buildCaseReference(data.caseId)}" />
+				<br />
+				<div class="command-btns">
+					<p:link value="Back to Case list"
+						href="#{ivy.html.startref('197CF45768C992CF/start.ivp')}" />
+					<br />
+				</div>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

@@ -1,0 +1,63 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
+  "id" : "197D44234A9D2E54",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "com.axonivy.utils.casemailcomponent.businessCaseData.SendMailData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "sendMail(Mail)",
+      "config" : {
+        "signature" : "sendMail",
+        "input" : {
+          "params" : [
+            { "name" : "mail", "type" : "com.axonivy.utils.casemailcomponent.businessData.Mail", "desc" : "" }
+          ],
+          "map" : {
+            "out.mail" : "param.mail"
+          },
+          "code" : [
+            "ivy.task.customFields().stringField(\"HIDE\").set(\"HIDE\");",
+            "ivy.case.customFields().stringField(\"HIDE\").set(\"HIDE\");"
+          ]
+        }
+      },
+      "tags" : [
+        "connector"
+      ],
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f3", "to" : "f2" }
+      ]
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "name" : "end",
+      "visual" : {
+        "at" : { "x" : 368, "y" : 64 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    }, {
+      "id" : "f2",
+      "type" : "TriggerCall",
+      "name" : "call send mail async",
+      "config" : {
+        "processCall" : "SendMailAsync:sendMail(com.axonivy.utils.casemailcomponent.businessData.Mail)",
+        "call" : {
+          "map" : {
+            "param.mail" : "in.mail"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 232, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f4", "to" : "f1" }
+      ]
+    } ]
+}

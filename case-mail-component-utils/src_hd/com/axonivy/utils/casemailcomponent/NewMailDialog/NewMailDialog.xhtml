@@ -1,0 +1,135 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<cc:interface componentType="IvyComponent">
+	<cc:attribute name="id" required="true" />
+	<cc:attribute name="newMailDialogId" required="true" />
+	<cc:attribute name="mail" required="true"
+		type="com.axonivy.utils.casemailcomponent.businessData.Mail"
+		shortDescription="Email object to show on dialog, possible a new email or existing email" />
+</cc:interface>
+
+<cc:implementation>
+	<!-- CSS and JS includes -->
+	<h:outputStylesheet name="suneditor/css/suneditor.min.css" />
+	<h:outputStylesheet name="suneditor/css/suneditor-custom.css" />
+	<h:outputStylesheet
+		name="resources/fileUpload/simpleLookForAdvancedFileUpload.css" />
+	<h:outputScript name="suneditor/suneditor.min.js" target="head" />
+	<h:outputScript name="suneditor/suneditor-custom.js" target="head" />
+	<h:outputScript name="resources/fileUpload/fileUploadHelper.js" />
+
+	<p:dialog id="newEmailDialog"
+		header="#{ivy.cms.co('/NewMail/newMail')}" widgetVar="newEmailDialog"
+		modal="true" width="800" closable="true" styleClass="max-height: 900"
+		fitViewport="true">
+		<p:ajax event="close" oncomplete="close()"></p:ajax>
+		<p:outputPanel id="dialogInputs" layout="block">
+			<h:panelGroup id="newMailForm">
+				<p:messages id="messages" showDetail="false" closable="true" />
+				<div class="grid w-full">
+					<div class="col-12 md:col-6">
+						<h:outputLabel for="from" value="#{ivy.cms.co('/Mail/from')}*"
+							styleClass="block mb-2" />
+						<p:inputText id="from" value="#{cc.attrs.mail.sender}"
+							required="true"
+							requiredMessage="#{ivy.cms.co('/Validation/requiredMessage', [ivy.cms.co('/Mail/from')])}"
+							validatorMessage="#{ivy.cms.co('/Mail/from')}: #{ivy.cms.co('/Validation/InvalidEmail/message')}"
+							styleClass="w-full">
+							<f:validateRegex for="from"
+								pattern="#{ivy.cms.co('/Validation/InvalidEmail/regex')}" />
+						</p:inputText>
+					</div>
+					<div class="col-12 md:col-6">
+						<h:outputLabel for="to" value="#{ivy.cms.co('/Mail/to')}*"
+							styleClass="block mb-2" />
+						<p:inputText id="to" value="#{cc.attrs.mail.recipient}"
+							required="true"
+							requiredMessage="#{ivy.cms.co('/Validation/requiredMessage', [ivy.cms.co('/Mail/to')])}"
+							validatorMessage="#{ivy.cms.co('/Mail/to')}: #{ivy.cms.co('/Validation/InvalidEmailList/message')}"
+							styleClass="w-full">
+							<f:validateRegex for="to"
+								pattern="#{ivy.cms.co('/Validation/InvalidEmailList/regex')}" />
+						</p:inputText>
+					</div>
+					<div class="col-12 py-1">
+						<h:outputLabel for="cc" value="#{ivy.cms.co('/Mail/cc')}"
+							styleClass="block mb-2" />
+						<p:inputText id="cc" value="#{cc.attrs.mail.recipientCC}"
+							validatorMessage="#{ivy.cms.co('/Mail/cc')}: #{ivy.cms.co('/Validation/InvalidEmailList/message')}"
+							styleClass="w-full">
+							<f:validateRegex for="cc"
+								pattern="#{ivy.cms.co('/Validation/InvalidEmailList/regex')}" />
+						</p:inputText>
+					</div>
+					<div class="col-12">
+						<h:outputLabel for="subject"
+							value="#{ivy.cms.co('/Mail/subject')}*" styleClass="block mb-2" />
+						<p:inputText id="subject" value="#{cc.attrs.mail.subject}"
+							styleClass="w-full" />
+					</div>
+					<div class="col-12 py-1">
+						<div class="flex justify-content-between align-items-center mb-1">
+							<h:outputLabel class="block mb-2"
+								value="#{ivy.cms.co('/Mail/attachments')}" />
+							<p:fileUpload id="mailAttachmentUpload"
+								widgetVar="mailAttachmentUpload" mode="advanced"
+								styleClass="custom-upload-btn" chooseIcon="pi pi-paperclip"
+								label="" skinSimple="true" auto="true"
+								sizeLimit="#{mailBean.getMaxUploadSizeInBytes()}"
+								allowTypes="/(\.|\/)(#{mailBean.getAllowedFileTypes()})$/"
+								invalidSizeMessage="#{ivy.cms.co('/File/maximumFileSizeMessage', [mailBean.getMaxUploadSizeInMB()])}"
+								invalidFileMessage="#{ivy.cms.co('/File/fileTypesAllowedMessage', [mailBean.allowFileTypes])}"
+								update="@([id$=attachments]) @([id$=messages])"
+								listener="#{mailBean.handleFileUpload}" process="@this">
+								<f:validateBean disabled="true" />
+							</p:fileUpload>
+						</div>
+						<p:outputPanel id="attachments"
+							styleClass="border-round-md gap-1 flex flex-wrap overflow-y-auto max-h-10rem custom-chip p-1">
+							<ui:repeat var="attachment" value="#{mailBean.attachments}">
+								<p:chip label="#{attachment.name} - #{attachment.size} KB"
+									icon="pi #{mailBean.getAttachmentIcon(attachment.contentType)}"
+									styleClass="m-1 chip-hover" removable="true">
+									<p:ajax listener="#{mailBean.viewDocument(attachment)}"
+										process="@this" update="@widgetVar(documentViewerWidget)"
+										oncomplete="PF('documentViewerWidget').show()" />
+									<p:ajax event="close"
+										listener="#{mailBean.removeFile(attachment)}"
+										update="@([id$=attachments])" />
+								</p:chip>
+							</ui:repeat>
+						</p:outputPanel>
+					</div>
+					<div class="col-12 mt-3">
+						<p:inputTextarea id="body" value="#{cc.attrs.mail.body}" rows="3"
+							autoResize="false" styleClass="w-full" />
+						<h:outputScript>
+					        initSunEditor('#{cc.attrs.newMailDialogId}:body', false, '100%', '30vh', true, 13, '#000000', false);
+					    </h:outputScript>
+					</div>
+				</div>
+			</h:panelGroup>
+		</p:outputPanel>
+		<f:facet name="footer">
+			<p:commandButton value="#{ivy.cms.co('/Button/cancel')}"
+				oncomplete="PF('newEmailDialog').hide()" styleClass="ui-button-flat" />
+			<p:commandButton value="#{ivy.cms.co('/Button/send')}"
+				actionListener="#{logic.sendMail(cc.attrs.mail, mailBean.mailModel.rowCount, mailBean.attachments)}"
+				process="@form" icon="pi pi-send" styleClass="ui-button-primary"
+				oncomplete="if (args &amp;&amp; !args.validationFailed) PF('newEmailDialog').hide();"
+				update="@([id$=dialogInputs]) @([id$=mailTable]) @([id$=messages])" />
+			<p:remoteCommand name="close" immediate="true"
+				update="@([id$=newEmailDialog]) @([id$=mailTable])"
+				actionListener="#{mailBean.handleCloseDialog()}"
+				oncomplete="PF('newEmailDialog').hide()" resetValues="true">
+			</p:remoteCommand>
+		</f:facet>
+	</p:dialog>
+</cc:implementation>
+</html>

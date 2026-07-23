@@ -1,0 +1,69 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
+  "id" : "198829F896135D7E",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "com.axonivy.utils.casemailcomponent.businessCaseData.HandleRetrieveMailData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "handleRetrieveMail()",
+      "config" : {
+        "signature" : "call",
+        "input" : {
+          "params" : [
+            { "name" : "storeName", "type" : "String", "desc" : "" }
+          ],
+          "map" : {
+            "out.storeName" : "param.storeName"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 168 }
+      },
+      "connect" : [
+        { "id" : "f2", "to" : "f3" }
+      ]
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 360, "y" : 168 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "Script",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.axonivy.utils.casemailcomponent.service.DefaultEmailHandlerCreator;",
+            "import com.axonivy.utils.casemailcomponent.service.AbstractEmailHandlerCreator;",
+            "",
+            "AbstractEmailHandlerCreator emailHandlerCreator = new DefaultEmailHandlerCreator();",
+            "emailHandlerCreator.retrieveEmails(in.storeName);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 232, "y" : 168 }
+      },
+      "connect" : [
+        { "id" : "f4", "to" : "f1", "color" : "default" }
+      ]
+    }, {
+      "id" : "f5",
+      "type" : "ProcessAnnotation",
+      "name" : [
+        "Override it in your project to",
+        "handle retrieve mail."
+      ],
+      "visual" : {
+        "at" : { "x" : 151, "y" : 87 },
+        "size" : { "width" : 181, "height" : 61 },
+        "color" : "default"
+      }
+    } ]
+}

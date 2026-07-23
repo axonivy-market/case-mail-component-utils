@@ -1,0 +1,144 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
+  "id" : "197CF24201520886",
+  "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "com.axonivy.utils.casemailcomponent.NewMailDialog.NewMailDialogData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "signature" : "start",
+        "guid" : "197CF242015AFDB5"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 },
+        "labelOffset" : { "x" : 10, "y" : 30 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogEventStart",
+      "name" : "close",
+      "config" : {
+        "guid" : "197CF24201668F80"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 }
+      },
+      "connect" : [
+        { "id" : "f5", "to" : "f4" }
+      ]
+    }, {
+      "id" : "f4",
+      "type" : "HtmlDialogExit",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 160 },
+        "labelOffset" : { "x" : 10, "y" : 30 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "sendMail(Mail,Number,List<Attachment>)",
+      "config" : {
+        "signature" : "sendMail",
+        "input" : {
+          "params" : [
+            { "name" : "mail", "type" : "com.axonivy.utils.casemailcomponent.businessData.Mail", "desc" : "" },
+            { "name" : "mailCount", "type" : "Number", "desc" : "" },
+            { "name" : "attachments", "type" : "java.util.List<com.axonivy.utils.casemailcomponent.businessData.Attachment>", "desc" : "" }
+          ],
+          "map" : {
+            "out.attachments" : "param.attachments",
+            "out.mail" : "param.mail",
+            "out.mailCount" : "param.mailCount"
+          }
+        },
+        "guid" : "197D43FD2B3294DB"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 264 },
+        "labelOffset" : { "x" : 43, "y" : 35 }
+      },
+      "connect" : [
+        { "id" : "f8", "to" : "f11" }
+      ]
+    }, {
+      "id" : "f11",
+      "type" : "Script",
+      "name" : "save mail",
+      "config" : {
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.mail" : "in.mail"
+          },
+          "code" : [
+            "import com.axonivy.utils.casemailcomponent.service.MailService;",
+            "",
+            "in.mail = MailService.saveMail(in.mail, in.attachments);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 312, "y" : 264 }
+      },
+      "connect" : [
+        { "id" : "f7", "to" : "f13" }
+      ]
+    }, {
+      "id" : "f13",
+      "type" : "SubProcessCall",
+      "name" : "call send mail",
+      "config" : {
+        "processCall" : "SendMail:sendMail(com.axonivy.utils.casemailcomponent.businessData.Mail)",
+        "call" : {
+          "map" : {
+            "param.mail" : "in.mail"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 528, "y" : 264 }
+      },
+      "connect" : [
+        { "id" : "f10", "to" : "f15" }
+      ]
+    }, {
+      "id" : "f9",
+      "type" : "HtmlDialogExit",
+      "visual" : {
+        "at" : { "x" : 848, "y" : 264 },
+        "labelOffset" : { "x" : 10, "y" : 30 }
+      }
+    }, {
+      "id" : "f15",
+      "type" : "Script",
+      "name" : "wait for mail update",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.axonivy.utils.casemailcomponent.service.MailService;",
+            "",
+            "MailService.waitForMailCount(in.mailCount, in.mail.caseId, 5000);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 712, "y" : 264 }
+      },
+      "connect" : [
+        { "id" : "f16", "to" : "f9", "color" : "default" }
+      ]
+    } ]
+}
