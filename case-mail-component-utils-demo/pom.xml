@@ -9,7 +9,7 @@
   </parent>
   <groupId>com.axonivy.utils.casemailcomponent</groupId>
   <artifactId>case-mail-component-utils-demo</artifactId>
-  <version>13.2.2</version>
+  <version>13.2.3-SNAPSHOT</version>
   <packaging>iar</packaging>
   <dependencies>
     <dependency>
