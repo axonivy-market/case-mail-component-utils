@@ -3,7 +3,7 @@
   <groupId>com.axonivy.utils.casemailcomponent</groupId>
   <name>case-mail-component-utils</name>
   <artifactId>case-mail-component-utils-modules</artifactId>
-  <version>13.2.2-SNAPSHOT</version>
+  <version>13.2.3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>

@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axonivy.utils.casemailcomponent</groupId>
   <artifactId>case-mail-component-utils-product</artifactId>
-  <version>13.2.2-SNAPSHOT</version>
+  <version>13.2.3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
