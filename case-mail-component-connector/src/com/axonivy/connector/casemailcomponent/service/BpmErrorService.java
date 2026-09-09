@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import com.axonivy.connector.casemailcomponent.enums.BpmErrorCode;
 
 import ch.ivyteam.ivy.bpm.error.BpmError;
+import ch.ivyteam.ivy.bpm.error.BpmErrorBuilder;
 import ch.ivyteam.ivy.bpm.error.BpmPublicErrorBuilder;
 
 /**
@@ -18,6 +19,9 @@ import ch.ivyteam.ivy.bpm.error.BpmPublicErrorBuilder;
  */
 public class BpmErrorService {
 	private static final BpmErrorService INSTANCE = new BpmErrorService();
+
+	/** Error code used when no BpmErrorCode is given. */
+	private static final String DEFAULT_ERROR_CODE = "com:axonivy:connector:mail:unknown";
 
 	private BpmErrorService() {
 	} // locked constructor
@@ -119,28 +123,26 @@ public class BpmErrorService {
 	}
 
 	/**
-	 * builds BpmPublicErrorBuilder based on given params
+	 * Builds a BpmError builder for the given error code, message, cause and message parameters.
 	 *
 	 * @param bpmErrorCode
 	 * @param message      message to show
 	 * @param cause        Exception to show
 	 * @param params       attributes for Message param, must be in correct order
 	 */
-	private BpmPublicErrorBuilder getBpmErrorBuilder(BpmErrorCode bpmErrorCode, String message, Exception cause,
+	private BpmErrorBuilder<?> getBpmErrorBuilder(BpmErrorCode bpmErrorCode, String message, Exception cause,
 			Object[] params) {
-		final BpmPublicErrorBuilder builder = new BpmPublicErrorBuilder();
-		if (Objects.nonNull(bpmErrorCode)) {
-			builder.withErrorCode(bpmErrorCode.getCode());
-		}
+		BpmPublicErrorBuilder builder = BpmError
+				.create(Objects.nonNull(bpmErrorCode) ? bpmErrorCode.getCode() : DEFAULT_ERROR_CODE);
 		if (StringUtils.isNotEmpty(message)) {
-			builder.withMessage(message);
+			builder = builder.withMessage(message);
 		}
 		if (Objects.nonNull(cause)) {
-			builder.withCause(cause);
+			builder = builder.withCause(cause);
 		}
 		if (Objects.nonNull(params)) {
 			final Map<String, Object> paramsMap = createParamsMap(params);
-			builder.withAttributes(paramsMap);
+			builder = builder.withAttributes(paramsMap);
 		}
 		return builder;
 	}

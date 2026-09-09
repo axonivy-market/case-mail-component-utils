@@ -81,12 +81,12 @@
 								widgetVar="mailAttachmentUpload" mode="advanced"
 								styleClass="custom-upload-btn" chooseIcon="pi pi-paperclip"
 								label="" skinSimple="true" auto="true"
-								sizeLimit="#{mailBean.getMaxUploadSizeInBytes()}"
-								allowTypes="/(\.|\/)(#{mailBean.getAllowedFileTypes()})$/"
-								invalidSizeMessage="#{ivy.cms.co('/File/maximumFileSizeMessage', [mailBean.getMaxUploadSizeInMB()])}"
-								invalidFileMessage="#{ivy.cms.co('/File/fileTypesAllowedMessage', [mailBean.allowFileTypes])}"
+								validatorMessage="#{ivy.cms.co('/File/maximumFileSizeMessage', [mailBean.getMaxUploadSizeInMB()])} #{ivy.cms.co('/File/fileTypesAllowedMessage', [mailBean.allowFileTypes])}"
 								update="@([id$=attachments]) @([id$=messages])"
 								listener="#{mailBean.handleFileUpload}" process="@this">
+								<p:validateFile 
+									sizeLimit="#{mailBean.getMaxUploadSizeInBytes()}"
+									allowTypes="/(\.|\/)(#{mailBean.getAllowedFileExtensions()})$/" />
 								<f:validateBean disabled="true" />
 							</p:fileUpload>
 						</div>
@@ -94,7 +94,7 @@
 							styleClass="border-round-md gap-1 flex flex-wrap overflow-y-auto max-h-10rem custom-chip p-1">
 							<ui:repeat var="attachment" value="#{mailBean.attachments}">
 								<p:chip label="#{attachment.name} - #{attachment.size} KB"
-									icon="pi #{mailBean.getAttachmentIcon(attachment.contentType)}"
+									icon="ti #{mailBean.getAttachmentIcon(attachment.contentType)}"
 									styleClass="m-1 chip-hover" removable="true">
 									<p:ajax listener="#{mailBean.viewDocument(attachment)}"
 										process="@this" update="@widgetVar(documentViewerWidget)"
