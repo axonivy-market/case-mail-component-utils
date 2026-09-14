@@ -68,7 +68,7 @@
 
 					<h3>#{ivy.cms.co("/Tasks/EmailFailAdminTask/mailSendHistory")}</h3>
 					<p:dataTable id="taskDataTable" value="#{data.sendingMailTasks}"
-						var="task" disabledTextSelection="false">
+						var="task" selectionTextDisabled="false">
 						<p:column
 							headerText="#{ivy.cms.co('/Tasks/EmailFailAdminTask/date')}"
 							width="100">

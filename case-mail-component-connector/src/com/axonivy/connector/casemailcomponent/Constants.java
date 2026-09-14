@@ -14,10 +14,10 @@ public class Constants {
 	public static final String MIME_WORD_OPENXML = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 
 	// Icon classes
-	public static final String ICON_PDF = "pi-file-pdf";
-	public static final String ICON_EXCEL = "pi-file-excel";
-	public static final String ICON_WORD = "pi-file-word";
-	public static final String ICON_DEFAULT = "pi-file";
+	public static final String ICON_PDF = "ti-file-type-pdf";
+	public static final String ICON_EXCEL = "ti-file-type-xls";
+	public static final String ICON_WORD = "ti-file-word";
+	public static final String ICON_DEFAULT = "ti-file";
 	public static final String COMMA = ",";
 	public static final String SYSTEM_LINE_SEPARATOR = System.lineSeparator();
 	public static final String TEXT_HTML = "html";
