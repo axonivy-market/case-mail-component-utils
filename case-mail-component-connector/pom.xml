@@ -23,7 +23,7 @@
     <dependency>
       <groupId>com.axonivy.utils.docfactory</groupId>
       <artifactId>doc-factory</artifactId>
-      <version>13.2.2</version>
+      <version>14.0.0-SNAPSHOT</version>
       <type>iar</type>
     </dependency>
     <dependency>
@@ -39,7 +39,7 @@
     <dependency>
       <groupId>com.axonivy.connector.mailstore</groupId>
       <artifactId>mailstore-connector</artifactId>
-      <version>13.2.0</version>
+      <version>14.0.0-SNAPSHOT</version>
       <type>iar</type>
     </dependency>
     <dependency>
@@ -48,8 +48,8 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>commons-beanutils</groupId>
-      <artifactId>commons-beanutils</artifactId>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-beanutils2</artifactId>
     </dependency>
     <dependency>
       <groupId>com.axonivy.ivy.api</groupId>

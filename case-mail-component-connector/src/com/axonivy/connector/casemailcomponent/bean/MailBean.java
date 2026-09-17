@@ -1,6 +1,7 @@
 package com.axonivy.connector.casemailcomponent.bean;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -8,11 +9,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -35,10 +31,14 @@ import com.axonivy.connector.casemailcomponent.utils.TextUtil;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
+import jakarta.annotation.PostConstruct;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
-@ManagedBean
+@Named
 @ViewScoped
-public class MailBean {
+public class MailBean implements Serializable {
 	private Mail mail;
 	private Mail selectedMail;
 	private MailLazyDataModel mailModel;
@@ -49,6 +49,9 @@ public class MailBean {
 	private String allowFileTypes = Ivy.var().get("mailstoreConnector.allowFileTypes");
 	private String maxUploadSize = Ivy.var().get("mailstoreConnector.maxUploadSize");
 	private List<Attachment> inlineAttachments;
+
+	@Inject
+	private DocumentViewerBean documentViewerBean;
 
 	private static final Map<String, String> MIME_TYPE_ICON_MAP = new HashMap<>();
 
@@ -156,8 +159,8 @@ public class MailBean {
 	 *
 	 * @return
 	 */
-	public Integer getMaxUploadSizeInBytes() {
-		return getMaxUploadSizeInMB() * 1024 * 1024;
+	public Long getMaxUploadSizeInBytes() {
+		return getMaxUploadSizeInMB().longValue() * 1024 * 1024;
 	}
 
 	/**
@@ -167,17 +170,13 @@ public class MailBean {
 	 */
 	public Integer getMaxUploadSizeInMB() {
 		if (StringUtils.isBlank(maxUploadSize)) {
-			return Integer.valueOf(10);
+			return 10;
 		}
 		return Integer.valueOf(maxUploadSize);
 	}
 
-	/**
-	 * Gets the allowed file types.
-	 *
-	 * @return
-	 */
-	public String getAllowedFileTypes() {
+	/** Returns the allowed upload extensions as jpg,pdf,xlsx,docx. */
+	public String getAllowedFileExtensions() {
 		if (StringUtils.isBlank(allowFileTypes)) {
 			return "";
 		}
@@ -214,7 +213,7 @@ public class MailBean {
 		return DateUtil.format(dateTime);
 	}
 
-	public static String getAttachmentIcon(String contentType) {
+	public String getAttachmentIcon(String contentType) {
 		return MIME_TYPE_ICON_MAP.getOrDefault(contentType, Constants.ICON_DEFAULT);
 	}
 
@@ -224,8 +223,6 @@ public class MailBean {
 	 * @param file to be for show
 	 */
 	public void viewDocument(Attachment file) {
-		Map<String, Object> viewMap = FacesContext.getCurrentInstance().getViewRoot().getViewMap();
-		DocumentViewerBean documentViewerBean = (DocumentViewerBean) viewMap.get("documentViewerBean");
 		documentViewerBean.showFile(file);
 	}
 

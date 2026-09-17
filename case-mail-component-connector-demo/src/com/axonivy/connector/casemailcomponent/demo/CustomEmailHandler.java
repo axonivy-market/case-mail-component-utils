@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 import com.axonivy.connector.casemailcomponent.demo.model.CaseModel;
 import com.axonivy.connector.casemailcomponent.service.AbstractEmailHandler;

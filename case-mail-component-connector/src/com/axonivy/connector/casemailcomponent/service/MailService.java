@@ -9,7 +9,7 @@ import java.util.List;
 import jakarta.mail.internet.AddressException;
 import jakarta.mail.internet.InternetAddress;
 
-import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils2.BeanUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;

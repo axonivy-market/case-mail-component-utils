@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="jakarta.faces.core"
+	xmlns:h="jakarta.faces.html"
+	xmlns:ui="jakarta.faces.facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="primefaces"
+	xmlns:pe="primefaces.extensions">
+<h:body>
+	<ui:composition template="/layouts/frame-10.xhtml">
+		<ui:define name="content">
+			<h:form id="form">
+				<p:messages />
+				<p:panelGrid columns="2" layout="grid"
+					styleClass="ui-panelgrid-blank ui-fluid"
+					columnClasses="ui-g-12 ui-md-3 ui-lg-3, ui-g-12 ui-md-9 ui-lg-9">
+					<h:outputText value="#{ivy.cms.co('/RetrieveMail/taskTitle')}" />
+					<h:outputText value="#{ivy.task.name}" />
+					<h:outputText value="#{ivy.cms.co('/RetrieveMail/taskDesc')}" />
+					<h:outputText value="#{ivy.task.description}" />
+					<h:outputText value="#{ivy.cms.co('/RetrieveMail/date')}" />
+					<h:outputText value="#{ivy.task.startTimestamp}" />
+				</p:panelGrid>
+				<br />
+				<div class="command-btns">
+					<p:commandLink id="cancel"
+						actionListener="#{ivyWorkflowView.cancel()}" process="@this"
+						value="#{ivy.cms.co('/Button/cancel')}" />
+					<p:commandButton id="proceed" actionListener="#{logic.close}"
+						value="#{ivy.cms.co('/Button/finish')}"
+						title="#{ivy.cms.co('/Labels/proceedTooltip')}">
+						<p:confirm header="#{ivy.cms.co('/Labels/confirmation')}"
+							message="#{ivy.cms.co('/Labels/abortTaskMessage')}"
+							icon="si si-alert-circle" />
+					</p:commandButton>
+				</div>
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
+					responsive="true" width="auto">
+					<p:commandButton id="confirmNoBtn"
+						value="#{ivy.cms.co('/Button/no')}" type="button"
+						styleClass="ui-confirmdialog-no ui-button-flat" />
+					<p:commandButton id="confirmYesBtn"
+						value="#{ivy.cms.co('/Button/yes')}" type="button"
+						styleClass="ui-confirmdialog-yes" />
+				</p:confirmDialog>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

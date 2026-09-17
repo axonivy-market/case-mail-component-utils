@@ -3,10 +3,8 @@ package com.axonivy.connector.casemailcomponent.model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ch.ivyteam.ivy.workflow.TaskDefinition;
-
 /**
- * Custom simplified implementation of {@link TaskDefinition}
+ * Custom simplified implementation of {@link ch.ivyteam.ivy.workflow.TaskDefinition}
  *
  * @author ny.huynh
  */
