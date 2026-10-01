@@ -1,0 +1,27 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0/project/data-class.json",
+  "simpleName" : "SendMailAsyncData",
+  "namespace" : "com.axonivy.connector.casemailcomponent.businessCaseData",
+  "fields" : [ {
+    "name" : "mail",
+    "type" : "com.axonivy.connector.casemailcomponent.businessData.Mail"
+  }, {
+    "name" : "counter",
+    "type" : "java.lang.Integer"
+  }, {
+    "name" : "exceptionText",
+    "modifiers" : [ ]
+  }, {
+    "name" : "retryAction",
+    "type" : "com.axonivy.connector.casemailcomponent.enums.RetryAction",
+    "modifiers" : [ ]
+  }, {
+    "name" : "attachments",
+    "type" : "List<File>",
+    "modifiers" : [ ]
+  }, {
+    "name" : "javaApiEmail",
+    "type" : "com.axonivy.connector.casemailcomponent.service.JavaApiEmail",
+    "modifiers" : [ ]
+  } ]
+}

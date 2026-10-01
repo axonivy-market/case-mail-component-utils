@@ -1,0 +1,142 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="jakarta.faces.core"
+	xmlns:h="jakarta.faces.html"
+	xmlns:ui="jakarta.faces.facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="primefaces"
+	xmlns:pe="primefaces.extensions">
+<h:body>
+	<ui:composition template="/layouts/frame-10-full-width.xhtml">
+
+		<ui:define name="title">#{ivy.cms.co('/Tasks/EmailFailAdminTask/name')}</ui:define>
+		<ui:define name="content">
+			<h:outputStylesheet name="layouts/styles/custom-style.css" />
+			<h:form id="form">
+				<div class="ui-fluid">
+					<div class="grid">
+						<div class="col-12 md:col-12 lg:col-12">
+							<h2>
+								<h:outputText
+									value="#{ivy.cms.co('/Tasks/EmailFailAdminTask/name')}" />
+							</h2>
+							<h:outputText
+								value="#{ivy.cms.co('/Tasks/EmailFailAdminTask/description')}" />
+						</div>
+					</div>
+					<p:spacer height="1Em" />
+					<div class="grid">
+						<div class="col-12 md:col-12 lg:col-12">
+							<h3>
+								<h:outputText
+									value="#{ivy.cms.co('/Tasks/EmailFailAdminTask/details')}" />
+							</h3>
+						</div>
+					</div>
+					<p:messages />
+					<div class="flex justify-content-between flex-wrap">
+						<div class="flex align-items-center justify-content-center">
+							<h:outputText value="#{ivy.cms.co('/Mail/from')}" />
+						</div>
+						<div class="flex align-items-center justify-content-center">
+							<h:outputText value="#{data.mail.sender}" />
+						</div>
+					</div>
+					<hr />
+					<div class="flex justify-content-between flex-wrap">
+						<div class="flex align-items-center justify-content-center">
+							<h:outputText value="#{ivy.cms.co('/Mail/to')}" />
+						</div>
+						<div class="flex align-items-center justify-content-center">
+							<h:outputText value="#{data.mail.recipient}" />
+						</div>
+					</div>
+					<hr />
+					<div class="flex justify-content-between flex-wrap">
+						<div class="flex align-items-center justify-content-center">
+							<h:outputText value="#{ivy.cms.co('/Mail/subject')}" />
+						</div>
+						<div class="flex align-items-center justify-content-center">
+							<h:outputText value="#{data.mail.subject}" />
+						</div>
+					</div>
+					<hr />
+					<h3>
+						<h:outputText value="#{ivy.cms.co('/Mail/content')}" />
+					</h3>
+					<h:outputText value="#{data.mail.body}" escape="false"
+						styleClass="color-gray white-space-pre-line" />
+
+					<h3>#{ivy.cms.co("/Tasks/EmailFailAdminTask/mailSendHistory")}</h3>
+					<p:dataTable id="taskDataTable" value="#{data.sendingMailTasks}"
+						var="task" disabledTextSelection="false">
+						<p:column
+							headerText="#{ivy.cms.co('/Tasks/EmailFailAdminTask/date')}"
+							width="100">
+							<h:outputText value="#{task.endTimestamp}"
+								title="#{task.endTimestamp}">
+								<f:convertDateTime pattern="MM.dd.yyyy" />
+							</h:outputText>
+						</p:column>
+						<p:column
+							headerText="#{ivy.cms.co('/Tasks/EmailFailAdminTask/time')}"
+							width="100">
+							<h:outputText value="#{task.endTimestamp}"
+								title="#{task.endTimestamp}">
+								<f:convertDateTime pattern="HH:mm:ss" />
+							</h:outputText>
+						</p:column>
+						<p:column
+							headerText="#{ivy.cms.co('/Tasks/EmailFailAdminTask/errorMessage')}">
+							<h:outputText
+								value="#{task.customFields().stringField('mailErrorMessage').getOrDefault('')}"
+								title="#{task.customFields().stringField('mailErrorMessage').getOrDefault('')}" />
+						</p:column>
+					</p:dataTable>
+					<br />
+
+					<div class="grid justify-content-end">
+						<div class="col-12 md:col-2 lg:col-2">
+							<p:commandButton id="ignore" actionListener="#{logic.close}"
+								value="#{ivy.cms.co('/Tasks/EmailFailAdminTask/ignore')}"
+								icon="fa fa-check" update="form">
+								<p:confirm
+									header="#{ivy.cms.co('/Tasks/EmailFailAdminTask/ignoreConfirmationHeader')}"
+									message="#{ivy.cms.co('/Tasks/EmailFailAdminTask/ignoreConfirmationMessage')}"
+									icon="pi pi-exclamation-triangle" />
+							</p:commandButton>
+							<p:tooltip for="ignore"
+								value="#{ivy.cms.co('/Tasks/EmailFailAdminTask/ignoreTooltip')}"
+								position="top" />
+						</div>
+						<div class="col-12 md:col-2 lg:col-2">
+							<p:commandButton id="retry" actionListener="#{logic.retry}"
+								value="#{ivy.cms.co('/Tasks/EmailFailAdminTask/retry')}"
+								icon="fa fa-redo" update="form" />
+							<p:tooltip for="retry"
+								value="#{ivy.cms.co('/Tasks/EmailFailAdminTask/retryTooltip')}"
+								position="top" />
+						</div>
+						<div class="col-12 md:col-2 lg:col-2">
+							<p:commandButton id="checkLater"
+								actionListener="#{ivyWorkflowView.cancelToHome()}"
+								value="#{ivy.cms.co('/Tasks/EmailFailAdminTask/checkLater')}"
+								icon="fa fa-times" immediate="true" />
+							<p:tooltip for="checkLater"
+								value="#{ivy.cms.co('/Tasks/EmailFailAdminTask/checkLaterTooltip')}"
+								position="top" />
+						</div>
+					</div>
+				</div>
+				<p:confirmDialog id="adminTaskConfirmationDialog" global="true"
+					showEffect="fade" hideEffect="fade" responsive="true" width="500"
+					height="50" closable="false">
+					<p:commandButton value="#{ivy.cms.co('/Button/yes')}" id="yes"
+						icon="fa fa-check" type="button" styleClass="ui-confirmdialog-yes" />
+					<p:commandButton value="#{ivy.cms.co('/Button/no')}" id="no"
+						icon="fa fa-times" type="button" styleClass="ui-confirmdialog-no" />
+				</p:confirmDialog>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

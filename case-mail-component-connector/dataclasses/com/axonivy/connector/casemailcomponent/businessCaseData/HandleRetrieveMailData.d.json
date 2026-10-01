@@ -1,9 +1,0 @@
-{
-  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
-  "simpleName" : "HandleRetrieveMailData",
-  "namespace" : "com.axonivy.connector.casemailcomponent.businessCaseData",
-  "fields" : [ {
-    "name" : "storeName",
-    "modifiers" : [ ]
-  } ]
-}
