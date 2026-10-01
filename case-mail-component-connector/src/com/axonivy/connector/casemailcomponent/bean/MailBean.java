@@ -1,5 +1,6 @@
 package com.axonivy.connector.casemailcomponent.bean;
 
+import java.io.Serializable;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -9,10 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
+import jakarta.annotation.PostConstruct;
+import jakarta.inject.Named;
+import jakarta.faces.view.ViewScoped;
+import jakarta.faces.context.FacesContext;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -36,9 +37,9 @@ import com.axonivy.connector.casemailcomponent.utils.TextUtil;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
 
-@ManagedBean
+@Named
 @ViewScoped
-public class MailBean {
+public class MailBean implements Serializable {
 	private Mail mail;
 	private Mail selectedMail;
 	private MailLazyDataModel mailModel;

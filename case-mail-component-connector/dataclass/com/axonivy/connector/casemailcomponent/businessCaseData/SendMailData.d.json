@@ -1,0 +1,9 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0/project/data-class.json",
+  "simpleName" : "SendMailData",
+  "namespace" : "com.axonivy.connector.casemailcomponent.businessCaseData",
+  "fields" : [ {
+    "name" : "mail",
+    "type" : "com.axonivy.connector.casemailcomponent.businessData.Mail"
+  } ]
+}
