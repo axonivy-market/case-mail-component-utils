@@ -1,0 +1,14 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
+  "simpleName" : "CaseOverViewData",
+  "namespace" : "com.axonivy.connector.casemailcomponent.demo.CaseOverView",
+  "fields" : [ {
+    "name" : "mail",
+    "type" : "com.axonivy.connector.casemailcomponent.businessData.Mail",
+    "modifiers" : [ ]
+  }, {
+    "name" : "caseList",
+    "type" : "List<com.axonivy.connector.casemailcomponent.demo.model.CaseModel>",
+    "modifiers" : [ ]
+  } ]
+}

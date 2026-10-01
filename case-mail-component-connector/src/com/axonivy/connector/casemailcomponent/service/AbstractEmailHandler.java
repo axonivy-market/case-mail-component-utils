@@ -40,7 +40,6 @@ import com.axonivy.connector.mailstore.MessageService;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
-import ch.ivyteam.ivy.workflow.signal.IBpmSignalService;
 
 public abstract class AbstractEmailHandler {
 	private static final String INBOX = "INBOX";

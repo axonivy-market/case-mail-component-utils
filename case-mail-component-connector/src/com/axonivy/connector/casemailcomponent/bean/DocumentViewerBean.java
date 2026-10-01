@@ -1,5 +1,6 @@
 package com.axonivy.connector.casemailcomponent.bean;
 
+import java.io.Serializable;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.attribute.FileTime;
@@ -9,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import jakarta.inject.Named;
+import jakarta.faces.view.ViewScoped;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +22,6 @@ import com.axonivy.connector.casemailcomponent.enums.BpmErrorCode;
 import com.axonivy.connector.casemailcomponent.service.DocumentService;
 
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.htmldialog.IHtmlDialogContext;
 import ch.ivyteam.ivy.scripting.objects.Binary;
 
 /**
@@ -31,9 +31,9 @@ import ch.ivyteam.ivy.scripting.objects.Binary;
  * @author ny.huynh
  *
  */
-@ManagedBean
+@Named
 @ViewScoped
-public class DocumentViewerBean {
+public class DocumentViewerBean implements Serializable {
 	private static final String[] ALLOWED_TYPES = Stream.of(new String[][] 
 			{ 
 				DocumentService.ASPOSE_IMAGE_FILE_TYPES,
