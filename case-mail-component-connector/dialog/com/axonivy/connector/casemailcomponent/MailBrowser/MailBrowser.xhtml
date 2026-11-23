@@ -157,11 +157,11 @@
 							<h:outputLabel for="attachments"
 								value="#{ivy.cms.co('/Mail/attachments')}"
 								styleClass="block mb-2" />
-							<p:outputPanel
+							<p:outputPanel id="attachments"
 								styleClass="border-round-md gap-1 flex flex-wrap overflow-y-auto max-h-10rem custom-chip p-1">
 								<ui:repeat var="attachment" value="#{mailBean.attachments}">
 									<p:chip label="#{attachment.name} - #{attachment.size} KB"
-										icon="pi #{mailBean.getAttachmentIcon(attachment.contentType)}"
+										icon="ti #{mailBean.getAttachmentIcon(attachment.contentType)}"
 										styleClass="chip-hover" removable="false">
 										<p:ajax listener="#{mailBean.viewDocument(attachment)}"
 											process="@this" update="@widgetVar(documentViewerWidget)"

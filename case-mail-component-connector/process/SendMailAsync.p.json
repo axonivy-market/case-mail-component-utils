@@ -94,8 +94,8 @@
         "labelOffset" : { "y" : 40 }
       },
       "connect" : [
-        { "id" : "f14", "to" : "f37", "via" : [ { "x" : 576, "y" : 512 } ], "var" : "in1" },
-        { "id" : "f13", "to" : "f3" }
+        { "id" : "f14", "to" : "f37", "via" : [ { "x" : 576, "y" : 512 } ], "var" : "in1", "label" : { "name" : "Retry limit reached" } },
+        { "id" : "f13", "to" : "f3", "label" : { "name" : "More attempts allowed" } }
       ]
     }, {
       "id" : "f15",
@@ -178,7 +178,8 @@
       "name" : "Retry task?",
       "config" : {
         "conditions" : {
-          "f25" : "in.#retryAction == com.axonivy.connector.casemailcomponent.enums.RetryAction.RETRY"
+          "f25" : "in.#retryAction == com.axonivy.connector.casemailcomponent.enums.RetryAction.RETRY",
+          "f26" : ""
         }
       },
       "visual" : {
@@ -186,8 +187,8 @@
         "labelOffset" : { "x" : 48, "y" : 32 }
       },
       "connect" : [
-        { "id" : "f25", "to" : "f36", "var" : "in1" },
-        { "id" : "f26", "to" : "f1", "via" : [ { "x" : 1296, "y" : 512 } ] }
+        { "id" : "f25", "to" : "f36", "var" : "in1", "label" : { "name" : "Retry" } },
+        { "id" : "f26", "to" : "f1", "via" : [ { "x" : 1296, "y" : 512 } ], "label" : { "name" : "Do not retry" } }
       ]
     }, {
       "id" : "f31",
@@ -227,8 +228,8 @@
         "labelOffset" : { "x" : 56, "y" : 24 }
       },
       "connect" : [
-        { "id" : "f34", "to" : "f8" },
-        { "id" : "f33", "to" : "f27", "var" : "in1" }
+        { "id" : "f34", "to" : "f8", "label" : { "name" : "Retry limit reached" } },
+        { "id" : "f33", "to" : "f27", "var" : "in1", "label" : { "name" : "Wait before retry" } }
       ]
     }, {
       "id" : "f36",
@@ -455,7 +456,7 @@
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [
-        { "id" : "f4", "to" : "S10", "color" : "default" },
+        { "id" : "f4", "to" : "S10", "color" : "default", "label" : { "name" : "Use Ivy EMail element" } },
         { "id" : "f5", "to" : "S11", "via" : [ { "x" : 568, "y" : 413 } ], "label" : {
             "name" : "use Java API to send mail?",
             "segment" : 1.22,

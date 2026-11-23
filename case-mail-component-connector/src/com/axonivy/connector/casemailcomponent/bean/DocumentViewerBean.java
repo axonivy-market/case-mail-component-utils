@@ -22,7 +22,6 @@ import com.axonivy.connector.casemailcomponent.enums.BpmErrorCode;
 import com.axonivy.connector.casemailcomponent.service.DocumentService;
 
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.htmldialog.IHtmlDialogContext;
 import ch.ivyteam.ivy.scripting.objects.Binary;
 
 /**
