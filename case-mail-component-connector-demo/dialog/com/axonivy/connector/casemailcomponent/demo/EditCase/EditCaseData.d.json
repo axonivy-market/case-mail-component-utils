@@ -1,0 +1,9 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
+  "simpleName" : "EditCaseData",
+  "namespace" : "com.axonivy.connector.casemailcomponent.demo.EditCase",
+  "fields" : [ {
+    "name" : "caseId",
+    "modifiers" : [ ]
+  } ]
+}
