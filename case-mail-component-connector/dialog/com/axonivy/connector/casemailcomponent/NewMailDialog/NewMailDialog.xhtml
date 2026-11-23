@@ -84,7 +84,7 @@
 								validatorMessage="#{ivy.cms.co('/File/maximumFileSizeMessage', [mailBean.getMaxUploadSizeInMB()])} #{ivy.cms.co('/File/fileTypesAllowedMessage', [mailBean.allowFileTypes])}"
 								update="@([id$=attachments]) @([id$=messages])"
 								listener="#{mailBean.handleFileUpload}" process="@this">
-								<p:validateFile 
+								<p:validateFile
 									sizeLimit="#{mailBean.getMaxUploadSizeInBytes()}"
 									allowTypes="/(\.|\/)(#{mailBean.getAllowedFileExtensions()})$/" />
 								<f:validateBean disabled="true" />
