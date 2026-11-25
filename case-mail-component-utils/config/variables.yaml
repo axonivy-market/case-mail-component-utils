@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://json-schema.axonivy.com/14.0/config/variables.json
 Variables:
-  mailstoreConnector:
+  mailstoreUtils:
     imap:
       protocol: ""
       host: ""

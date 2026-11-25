@@ -12,7 +12,7 @@ import com.axonivy.utils.casemailcomponent.service.AbstractEmailHandler;
 import ch.ivyteam.ivy.environment.Ivy;
 
 public class CustomEmailHandler extends AbstractEmailHandler {
-	private static final String CASE_REFERENCE_REGEX_VAR = "mailstoreConnector.caseReferenceRegex";
+	private static final String CASE_REFERENCE_REGEX_VAR = "mailstoreUtils.caseReferenceRegex";
 
 	public CustomEmailHandler(String storeName) {
 		super(storeName);

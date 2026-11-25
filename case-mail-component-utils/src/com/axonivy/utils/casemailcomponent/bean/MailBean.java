@@ -46,8 +46,8 @@ public class MailBean implements Serializable {
 	private String caseId;
 	private String caseRef;
 	private List<Attachment> attachments;
-	private String allowFileTypes = Ivy.var().get("mailstoreConnector.allowFileTypes");
-	private String maxUploadSize = Ivy.var().get("mailstoreConnector.maxUploadSize");
+	private String allowFileTypes = Ivy.var().get("mailstoreUtils.allowFileTypes");
+	private String maxUploadSize = Ivy.var().get("mailstoreUtils.maxUploadSize");
 	private List<Attachment> inlineAttachments;
 
 	@Inject

@@ -1,4 +1,4 @@
-# Case Mail Component
+# Case Mail Component Utils
 
 A simple mail component designed to send and receive emails related to a specific Ivy case. All sent emails are automatically linked to their corresponding case, providing seamless tracking and management of communication within the workflow.
 

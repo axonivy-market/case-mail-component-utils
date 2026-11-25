@@ -85,7 +85,7 @@
       "name" : "Number of attemp ok?",
       "config" : {
         "conditions" : {
-          "f13" : "in.counter <= ivy.var.mailstoreConnector_mailLoopRepeatNumber.toNumber()",
+          "f13" : "in.counter <= ivy.var.mailstoreUtils_mailLoopRepeatNumber.toNumber()",
           "f14" : ""
         }
       },
@@ -219,7 +219,7 @@
       "name" : "Repeated?",
       "config" : {
         "conditions" : {
-          "f33" : "in.counter < ivy.var.mailstoreConnector_mailLoopRepeatNumber.toNumber()",
+          "f33" : "in.counter < ivy.var.mailstoreUtils_mailLoopRepeatNumber.toNumber()",
           "f34" : ""
         }
       },
@@ -298,7 +298,7 @@
               "SYSTEM"
             ]
           },
-          "delay" : "new Duration(ivy.var.mailstoreConnector_mailLoopRepeatDelay + \"s\")",
+          "delay" : "new Duration(ivy.var.mailstoreUtils_mailLoopRepeatDelay + \"s\")",
           "customFields" : [
             { "name" : "HIDE", "type" : "STRING", "value" : "\"HIDE\"" }
           ],

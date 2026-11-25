@@ -34,7 +34,7 @@ import ch.ivyteam.ivy.mail.MailMessage;
  * @see BpmError
  */
 public class JavaApiEmail {
-	private final static String MAIL_CID_INLINE_IMAGES_MODE = "mailstoreConnector.cidInlineImagesMode";
+	private final static String MAIL_CID_INLINE_IMAGES_MODE = "mailstoreUtils.cidInlineImagesMode";
 
 	private MailMessage.Builder ivyMessageBuilder;
 
