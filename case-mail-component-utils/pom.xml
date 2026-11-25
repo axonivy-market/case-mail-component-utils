@@ -5,12 +5,12 @@
   <parent>
     <groupId>com.axonivy.ivy.api</groupId>
     <artifactId>ivy-project-parent</artifactId>
-    <version>14.0.0</version>
+    <version>14.0.1</version>
     <relativePath></relativePath>
   </parent>
   <groupId>com.axonivy.utils.casemailcomponent</groupId>
   <artifactId>case-mail-component-utils</artifactId>
-  <version>14.0.0-SNAPSHOT</version>
+  <version>14.0.1-SNAPSHOT</version>
   <packaging>iar</packaging>
   <properties>
     <apache.pdfbox.version>3.0.4</apache.pdfbox.version>
@@ -23,7 +23,7 @@
     <dependency>
       <groupId>com.axonivy.utils.docfactory</groupId>
       <artifactId>doc-factory</artifactId>
-      <version>14.0.0-SNAPSHOT</version>
+      <version>14.0.0</version>
       <type>iar</type>
     </dependency>
     <dependency>
@@ -65,9 +65,6 @@
       <url>https://repo.maven.apache.org/maven2</url>
     </repository>
     <repository>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
       <id>maven.axonivy.com</id>
       <url>https://maven.axonivy.com</url>
     </repository>
