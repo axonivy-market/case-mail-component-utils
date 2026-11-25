@@ -14,6 +14,4 @@ permissions:
 
 jobs:
   build:
-    uses: axonivy-market/github-workflows/.github/workflows/ci.yml@v6
-    with:
-      javaVersion: 25
+    uses: axonivy-market/github-workflows/.github/workflows/ci.yml@v14
