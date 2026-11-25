@@ -1,0 +1,9 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0/project/data-class.json",
+  "simpleName" : "MailDemoData",
+  "namespace" : "com.axonivy.connector.casemailcomponent.demo",
+  "fields" : [ {
+    "name" : "caseId",
+    "modifiers" : [ ]
+  } ]
+}

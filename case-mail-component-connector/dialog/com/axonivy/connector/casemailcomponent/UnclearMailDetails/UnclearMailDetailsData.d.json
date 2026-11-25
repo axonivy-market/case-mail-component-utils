@@ -1,0 +1,5 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0/project/data-class.json",
+  "simpleName" : "UnclearMailDetailsData",
+  "namespace" : "com.axonivy.connector.casemailcomponent.UnclearMailDetails"
+}
