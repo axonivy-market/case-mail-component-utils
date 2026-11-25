@@ -34,9 +34,9 @@ import com.axonivy.utils.casemailcomponent.utils.DateUtil;
 import com.axonivy.utils.casemailcomponent.utils.EmailContentUtil;
 import com.axonivy.utils.casemailcomponent.utils.IvyUtil;
 import com.axonivy.utils.casemailcomponent.utils.MessageComparator;
-import com.axonivy.connector.mailstore.MailStoreService;
-import com.axonivy.connector.mailstore.MailStoreService.MessageIterator;
-import com.axonivy.connector.mailstore.MessageService;
+import com.axonivy.utils.mailstore.MailStoreService;
+import com.axonivy.utils.mailstore.MailStoreService.MessageIterator;
+import com.axonivy.utils.mailstore.MessageService;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.DateTime;

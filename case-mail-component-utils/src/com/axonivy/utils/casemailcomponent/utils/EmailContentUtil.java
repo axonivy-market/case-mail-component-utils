@@ -21,7 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 import com.axonivy.utils.casemailcomponent.Constants;
 import com.axonivy.utils.casemailcomponent.enums.BpmErrorCode;
 import com.axonivy.utils.casemailcomponent.service.BpmErrorService;
-import com.axonivy.connector.mailstore.MessageService;
+import com.axonivy.utils.mailstore.MessageService;
 
 /**
  * Utils for working with {@link Message}s content
