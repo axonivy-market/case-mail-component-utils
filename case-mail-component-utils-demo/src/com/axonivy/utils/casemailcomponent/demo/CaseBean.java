@@ -16,7 +16,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 @Named
 @ViewScoped
 public class CaseBean implements Serializable {
-	private static final String CASE_REFERENCE_REGEX_VAR = "mailstoreConnector.caseReferenceRegex";
+	private static final String CASE_REFERENCE_REGEX_VAR = "mailstoreUtils.caseReferenceRegex";
 
 	public String buildCaseReference(String caseId) {
 		String regexPattern = Ivy.var().get(CASE_REFERENCE_REGEX_VAR);

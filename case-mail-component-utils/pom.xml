@@ -67,6 +67,9 @@
     <repository>
       <id>maven.axonivy.com</id>
       <url>https://maven.axonivy.com</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
     </repository>
   </repositories>
   <build>

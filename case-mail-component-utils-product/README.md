@@ -115,7 +115,7 @@ After the email is processed, a task is created for user with Role defined in th
      Http:
        MaxPostSize: 2097152
      ```  
-     👉 Reference: [Axon Ivy Docs – ivy.yaml](https://developer.axonivy.com/doc/13.2.0/engine-guide/configuration/files/ivy-yaml.html)
+     👉 Reference: [Axon Ivy Docs – ivy.yaml](https://developer.axonivy.com/doc/14.0.0/engine-guide/configuration/files/ivy-yaml.html)
 
    - In **nginx** configuration:  
      ```nginx

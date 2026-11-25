@@ -108,7 +108,7 @@ Nach der Verarbeitung der E-Mail wird eine Aufgabe für einen Benutzer mit der i
    Http:
      MaxPostSize: 2097152
    ```
-   👉 Referenz: [Axon Ivy Docs – ivy.yaml](https://developer.axonivy.com/doc/13.2.0/engine-guide/configuration/files/ivy-yaml.html)
+   👉 Referenz: [Axon Ivy Docs – ivy.yaml](https://developer.axonivy.com/doc/14.0.0/engine-guide/configuration/files/ivy-yaml.html)
 
    **Konfiguration in nginx:**
    ```nginx

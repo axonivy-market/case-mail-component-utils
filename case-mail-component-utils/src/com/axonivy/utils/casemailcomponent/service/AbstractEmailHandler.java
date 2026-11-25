@@ -43,12 +43,12 @@ import ch.ivyteam.ivy.scripting.objects.DateTime;
 
 public abstract class AbstractEmailHandler {
 	private static final String INBOX = "INBOX";
-	private static final String SUBJECT_MATCHES_VAR = "mailstoreConnector.subjectMatches";
-	private static final String RECEIVED_MAIL_TASK_ROLE_VAR = "mailstoreConnector.retrieveMailTaskRole";
-	private static final String CASE_REFERENCE_REGEX_VAR = "mailstoreConnector.caseReferenceRegex";
-	private static final String MAIL_STORE_VAR = "mailstoreConnector";
-	private static final String PROCESSED_FOLDER = Ivy.var().get("mailstoreConnector.processedFolderName");
-	private static final String ERROR_FOLDER = Ivy.var().get("mailstoreConnector.errorFolderName");
+	private static final String SUBJECT_MATCHES_VAR = "mailstoreUtils.subjectMatches";
+	private static final String RECEIVED_MAIL_TASK_ROLE_VAR = "mailstoreUtils.retrieveMailTaskRole";
+	private static final String CASE_REFERENCE_REGEX_VAR = "mailstoreUtils.caseReferenceRegex";
+	private static final String MAIL_STORE_VAR = "mailstoreUtils";
+	private static final String PROCESSED_FOLDER = Ivy.var().get("mailstoreUtils.processedFolderName");
+	private static final String ERROR_FOLDER = Ivy.var().get("mailstoreUtils.errorFolderName");
 	private static final String HANDLE_UNCLEAR_EMAILS_SIGNAL_CODE = "email:handleUnclear";
 
 	protected Mail mail;
