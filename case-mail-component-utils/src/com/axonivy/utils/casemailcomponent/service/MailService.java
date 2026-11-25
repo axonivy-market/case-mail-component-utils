@@ -1,6 +1,7 @@
 package com.axonivy.utils.casemailcomponent.service;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +30,8 @@ import ch.ivyteam.ivy.scripting.objects.DateTime;
 import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.ITask;
 
-public class MailService {
+public class MailService implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create a {@link BPMError} for email with exception message
