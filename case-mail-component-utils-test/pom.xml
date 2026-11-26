@@ -42,10 +42,12 @@
       <url>https://maven.axonivy.com</url>
     </repository>
   </repositories>
-  <pluginRepository>
-    <id>maven.axonivy.com</id>
-    <url>https://maven.axonivy.com</url>
-  </pluginRepository>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>maven.axonivy.com</id>
+      <url>https://maven.axonivy.com</url>
+    </pluginRepository>
+  </pluginRepositories>
   <build>
     <testSourceDirectory>src_test</testSourceDirectory>
     <pluginManagement>
