@@ -23,8 +23,6 @@ import jakarta.mail.internet.MimeUtility;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import com.axonivy.utils.mailstore.MailStoreService;
-import com.axonivy.utils.mailstore.MailStoreService.MessageIterator;
 import com.axonivy.utils.casemailcomponent.Constants;
 import com.axonivy.utils.casemailcomponent.businessData.Attachment;
 import com.axonivy.utils.casemailcomponent.businessData.Mail;
@@ -36,11 +34,12 @@ import com.axonivy.utils.casemailcomponent.utils.DateUtil;
 import com.axonivy.utils.casemailcomponent.utils.EmailContentUtil;
 import com.axonivy.utils.casemailcomponent.utils.IvyUtil;
 import com.axonivy.utils.casemailcomponent.utils.MessageComparator;
+import com.axonivy.utils.mailstore.MailStoreService;
+import com.axonivy.utils.mailstore.MailStoreService.MessageIterator;
 import com.axonivy.utils.mailstore.MessageService;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
-import ch.ivyteam.ivy.workflow.signal.IBpmSignalService;
 
 public abstract class AbstractEmailHandler {
 	private static final String INBOX = "INBOX";

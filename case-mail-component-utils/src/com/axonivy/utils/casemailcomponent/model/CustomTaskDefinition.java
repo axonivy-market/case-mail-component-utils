@@ -1,12 +1,10 @@
 package com.axonivy.utils.casemailcomponent.model;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import ch.ivyteam.ivy.workflow.TaskDefinition;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 
 /**
- * Custom simplified implementation of {@link TaskDefinition}
+ * Custom simplified implementation of {@link ch.ivyteam.ivy.workflow.TaskDefinition}
  *
  * @author ny.huynh
  */
@@ -73,7 +71,7 @@ public class CustomTaskDefinition {
 	}
 
 	/**
-	 * Converts object <i>this</i> to JSON using com.fasterxml.jackson library.
+	 * Converts object <i>this</i> to JSON using Jackson.
 	 * Opposite method is {@link #fromJson(String)}
 	 *
 	 * @return
@@ -82,13 +80,13 @@ public class CustomTaskDefinition {
 		final ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			return objectMapper.writeValueAsString(this);
-		} catch (final JsonProcessingException e) {
+		} catch (final JacksonException e) {
 		}
 		return "";
 	}
 
 	/**
-	 * Constructor for object <i>this</i> from JSON using com.fasterxml.jackson
+	 * Constructor for object <i>this</i> from JSON using Jackson
 	 * library. Opposite method is {@link #toJson()}
 	 *
 	 * @param json
@@ -98,7 +96,7 @@ public class CustomTaskDefinition {
 		final ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			return objectMapper.readValue(json, CustomTaskDefinition.class);
-		} catch (final JsonProcessingException e) {
+		} catch (final JacksonException e) {
 		}
 		return null;
 	}

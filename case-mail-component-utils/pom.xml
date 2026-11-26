@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.axonivy.ivy.api</groupId>
     <artifactId>ivy-project-parent</artifactId>
-    <version>13.2.0</version>
-    <relativePath />
+    <version>14.0.1</version>
+    <relativePath></relativePath>
   </parent>
   <groupId>com.axonivy.utils.casemailcomponent</groupId>
   <artifactId>case-mail-component-utils</artifactId>
-  <version>13.2.3-SNAPSHOT</version>
+  <version>14.0.1-SNAPSHOT</version>
   <packaging>iar</packaging>
   <properties>
     <apache.pdfbox.version>3.0.4</apache.pdfbox.version>
@@ -18,11 +19,11 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-text</artifactId>
-      </dependency>
+    </dependency>
     <dependency>
       <groupId>com.axonivy.utils.docfactory</groupId>
       <artifactId>doc-factory</artifactId>
-      <version>13.2.1</version>
+      <version>14.0.0</version>
       <type>iar</type>
     </dependency>
     <dependency>
@@ -38,7 +39,7 @@
     <dependency>
       <groupId>com.axonivy.utils.mailstore</groupId>
       <artifactId>mailstore-utils</artifactId>
-      <version>13.2.1</version>
+      <version>14.0.0</version>
       <type>iar</type>
     </dependency>
     <dependency>
@@ -47,9 +48,9 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>commons-beanutils</groupId>
-      <artifactId>commons-beanutils</artifactId>
-      </dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-beanutils2</artifactId>
+    </dependency>
     <dependency>
       <groupId>com.axonivy.ivy.api</groupId>
       <artifactId>ivy-api</artifactId>
@@ -65,7 +66,7 @@
     </repository>
     <repository>
       <snapshots>
-        <updatePolicy>always</updatePolicy>
+        <enabled>true</enabled>
       </snapshots>
       <id>maven.axonivy.com</id>
       <url>https://maven.axonivy.com</url>
