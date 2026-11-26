@@ -42,6 +42,12 @@
       <url>https://maven.axonivy.com</url>
     </repository>
   </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>maven.axonivy.com</id>
+      <url>https://maven.axonivy.com</url>
+    </pluginRepository>
+  </pluginRepositories>
   <build>
     <testSourceDirectory>src_test</testSourceDirectory>
     <pluginManagement>
@@ -59,6 +65,7 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
+        <version>14.0.1</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
